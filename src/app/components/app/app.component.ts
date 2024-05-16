@@ -1,6 +1,5 @@
-import { AfterContentInit, AfterViewInit, Component } from '@angular/core';
-import { ActivatedRouteSnapshot, NavigationEnd, Router, RouterStateSnapshot } from '@angular/router';
-import { filter } from 'rxjs';
+import { Component, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import { ApplicationService } from 'src/app/shared/services/application.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 
@@ -11,8 +10,9 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 })
 export class AppComponent {
   public pageTitle: string | null = null
-
   public isAuthenticated: boolean = false
+
+  @ViewChild('drawer') sidenav!: MatDrawer;
 
   constructor(
     private applicationService: ApplicationService,
@@ -21,8 +21,19 @@ export class AppComponent {
     this.applicationService.getPageTitle()
       .subscribe((pageTitle) => {
         this.pageTitle = pageTitle
+        this.sidenav.close()
       })
     
-    this.isAuthenticated = this.authenticationService.getIsAuthenticated()
+    this.authenticationService
+      .getIsAuthenticated()
+      .events
+      .subscribe((isAuthenticated: boolean) => {
+        this.isAuthenticated = isAuthenticated
+      })
+  }
+
+  public logout() {
+    this.authenticationService.logout()
+    this.sidenav.close()
   }
 }

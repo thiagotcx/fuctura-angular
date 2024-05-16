@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { EMAIL_VALIDATIONS, PASSWORD_VALIDATIONS } from '../../constants/validations';
 import { EMAIL_ERROR_MESSAGES, PASSWORD_ERROR_MESSAGES } from '../../constants/error-messages';
 import { getErrorTypeEnum } from '../../enums/error-type-enum';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { AuthenticationLogin } from 'src/app/shared/models/authentication-login';
 
 type ErrorMessage = string | undefined
 
@@ -15,15 +17,19 @@ export class LoginComponent {
 
   public loginForm: FormGroup
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService
+  ) {
     this.loginForm = this.formBuilder.group({
       email: ['', EMAIL_VALIDATIONS],
       password: ['', PASSWORD_VALIDATIONS]
     })
   }
-
+  
   public submitForm(): void {
-    console.log(this.loginForm.value)
+    const authenticationLogin: AuthenticationLogin = this.loginForm.value
+    this.authenticationService.login(authenticationLogin)
   }
 
   public getErrorMessage(formField: string): ErrorMessage {

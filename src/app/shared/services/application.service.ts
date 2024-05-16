@@ -24,13 +24,17 @@ export class ApplicationService {
     return this.applicationState.pageTitle.asObservable()
   }
 
-  setToken(token: string): void {
+  setToken(token: string | null): void {
     this.applicationState.token = token
-    localStorage.setItem('token', token)
+
+    if (token)
+      localStorage.setItem('token', token)
+    else
+      localStorage.removeItem('token')
   }
 
   setPageTitle(pageTitle: string): void {
-    console.log('setPageTitle' + pageTitle)
+    console.log('setPageTitle ' + pageTitle)
     this.applicationState.pageTitle.next(pageTitle)
   }
 
