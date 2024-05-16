@@ -1,0 +1,47 @@
+<div class="login">
+    <mat-card>
+        <mat-card-header>
+            <span>imagem aqui</span>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                <mat-form-field class="full-width">
+                    <mat-label>E-mail</mat-label>
+
+                    <input type="email"
+                        matInput
+                        formControlName="email"
+                        placeholder="Digite seu e-mail aqui">
+
+                        <mat-error>
+                        {{getErrorMessage('email')}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Senha</mat-label>
+                
+                    <input type="password"
+                        matInput
+                        formControlName="password"
+                        placeholder="Digite sua senha aqui">
+
+                    <mat-error>
+                        {{getErrorMessage('password')}}
+                    </mat-error>
+                </mat-form-field>
+
+                <button type="submit"
+                    class="full-width"
+                    mat-raised-button
+                    color="primary"
+                    [disabled]="formIsInvalid()"
+                    >Entrar</button>
+
+                <span>Não tem cadastro? 
+                    <a routerLink="/cadastro">Clique aqui</a> e faça seu cadastro.
+                </span>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

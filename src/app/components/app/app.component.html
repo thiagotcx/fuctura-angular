@@ -1,0 +1,27 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer mode="side">
+        <app-side-nav></app-side-nav>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <mat-toolbar color="primary" *ngIf="isAuthenticated">
+            <button 
+                mat-icon-button 
+                class="example-icon" 
+                (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>{{pageTitle}}</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+            </button>
+        </mat-toolbar>
+        
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>

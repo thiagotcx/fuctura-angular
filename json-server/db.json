@@ -1,0 +1,33 @@
+{
+  "vehicles": [
+    {
+      "id": "f8b9",
+      "licensePlate": "XPTO-0123",
+      "model": "XPTO",
+      "year": 2020,
+      "fipPrice": 83000
+    },
+    {
+      "licensePlate": "XPTO-4567",
+      "model": "XPTO - 2",
+      "year": 2023,
+      "fipPrice": 85000,
+      "id": "RFXMpmy"
+    },
+    {
+      "licensePlate": "XPTO-4567",
+      "model": "XPTO - 2",
+      "year": 2023,
+      "fipPrice": 85000,
+      "id": "aIQ88NA"
+    }
+  ],
+  "customers": [],
+  "users": [
+    {
+      "email": "user@xpto.com",
+      "password": "$2a$10$SZlKXLijcyApHHvFNWd3x.wpscoWQ8VLYdsKoUUTX7zqhS/PQEkKW",
+      "id": 1
+    }
+  ]
+}
