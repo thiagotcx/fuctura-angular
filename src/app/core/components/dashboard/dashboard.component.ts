@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ROUTES } from 'src/app/shared/constants/routes';
-import { ApplicationHttpService } from 'src/app/shared/services/application-http.service';
+import { VEHICLE_TABLE_COLUMNS } from 'src/app/shared/constants/table-columns';
+import { Vehicle } from 'src/app/shared/models/vehicle';
+import { VehicleService } from 'src/app/shared/services/vehicle.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +9,14 @@ import { ApplicationHttpService } from 'src/app/shared/services/application-http
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  constructor(private applicationHttpService: ApplicationHttpService) {
-    this.applicationHttpService.get(ROUTES.VEHICLES)
-      .subscribe((response) => {
-        console.log({ response })
-      })
+
+  public displayedColumns: string[] = VEHICLE_TABLE_COLUMNS;
+
+  public dataSource: Vehicle[] = []
+
+  constructor(private vehicleService: VehicleService) {
+    this.vehicleService
+      .getList({ sizeLimit: 5, orderBy: 'desc' })
+      .subscribe(vehicleList => this.dataSource = vehicleList.data)
   }
 }

@@ -1,1 +1,37 @@
-<p>dashboard works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Listagem dos 5 últimos veículos cadastrados</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+
+            <ng-container matColumnDef="licensePlate">
+                <th mat-header-cell *matHeaderCellDef> Placa </th>
+                <td mat-cell *matCellDef="let element"> <code>{{element.licensePlate}}</code> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="model">
+                <th mat-header-cell *matHeaderCellDef> Modelo </th>
+                <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef> Ano </th>
+                <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fipePrice">
+                <th mat-header-cell *matHeaderCellDef> Valor </th>
+                <td mat-cell *matCellDef="let element"> {{element.fipePrice | currency: 'BRL'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="creationDate">
+                <th mat-header-cell *matHeaderCellDef> Data de cadastro </th>
+                <td mat-cell *matCellDef="let element"> {{element.creationDate | date : 'short'}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>
