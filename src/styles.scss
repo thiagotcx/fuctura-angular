@@ -1,4 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+ }
+
+code {
+    font-family: Consolas, "courier new";
+    color: crimson;
+    background-color: #f1f1f1;
+    padding: 2px;
+    font-size: 105%;
+}
+
+main {
+    margin: 10px 30px;
+}
+
+mat-card {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+a {
+    color: #0300c5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.display-flex {
+    display: flex;
+    gap: 12px;
+}
