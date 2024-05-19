@@ -1,25 +1,21 @@
 {
   "vehicles": [
     {
-      "id": "f8b9",
-      "licensePlate": "XPTO-0123",
-      "model": "XPTO",
-      "year": 2020,
-      "fipPrice": 83000
+      "vehicleId": "i5_02QT",
+      "licensePlate": "GHAS-2339",
+      "model": "Corola Cross",
+      "year": 2023,
+      "fipePrice": "120000",
+      "creationDate": "2024-05-19T07:22:52.151Z",
+      "id": "i5_02QT"
     },
     {
-      "licensePlate": "XPTO-4567",
-      "model": "XPTO - 2",
-      "year": 2023,
-      "fipPrice": 85000,
-      "id": "RFXMpmy"
-    },
-    {
-      "licensePlate": "XPTO-4567",
-      "model": "XPTO - 2",
-      "year": 2023,
-      "fipPrice": 85000,
-      "id": "aIQ88NA"
+      "licensePlate": "GTFS-4512",
+      "model": "Fiat Palio",
+      "year": 2015,
+      "fipePrice": "25000",
+      "creationDate": "2024-05-19T08:14:17.247Z",
+      "id": "s5Wh9DC"
     }
   ],
   "customers": [],
