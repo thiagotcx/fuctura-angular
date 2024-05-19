@@ -1,4 +1,4 @@
-import { ErrorTypeEnum } from "../enums/error-type-enum"
+import { ErrorTypeEnum } from "src/app/shared/enums/error-type-enum"
 import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from "./password"
 
 type ErrorMessage = {

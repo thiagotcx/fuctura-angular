@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EMAIL_VALIDATIONS, PASSWORD_VALIDATIONS } from '../../constants/validations';
 import { EMAIL_ERROR_MESSAGES, PASSWORD_ERROR_MESSAGES } from '../../constants/error-messages';
-import { getErrorTypeEnum } from '../../enums/error-type-enum';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { AuthenticationLogin } from 'src/app/shared/models/authentication-login';
+import { getErrorTypeEnum } from 'src/app/shared/enums/error-type-enum';
 
 type ErrorMessage = string | undefined
 
