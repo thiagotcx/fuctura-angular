@@ -2,7 +2,9 @@ export enum ErrorTypeEnum {
     REQUIRED = 'required',
     EMAIL = 'email',
     MIN_LENGTH = 'minlength',
+    MAX = 'max',
     MAX_LENGTH = 'maxlength',
+    PATTERN = 'pattern',
 }
 
 export function getErrorTypeEnum(error: string): ErrorTypeEnum {
