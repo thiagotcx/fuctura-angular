@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
@@ -13,6 +14,8 @@ import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthenticationInterceptor } from './shared/interceptors/authentication.interceptor';
 
+import localePT from '@angular/common/locales/pt';
+registerLocaleData(localePT);
 
 @NgModule({
   declarations: [
@@ -33,11 +36,12 @@ import { AuthenticationInterceptor } from './shared/interceptors/authentication.
     SharedModule
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'pt-br' },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptor,
       multi: true,
-    },
+    }
   ],
   bootstrap: [AppComponent],
 })
