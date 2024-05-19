@@ -4,6 +4,7 @@ import { VehicleListComponent } from './components/vehicle-list/vehicle-list.com
 import { authenticatorGuard } from '../shared/guards/authenticator.guard';
 import { VehicleItemComponent } from './components/vehicle-item/vehicle-item.component';
 import { VehicleRegisterComponent } from './components/vehicle-register/vehicle-register.component';
+import { VehicleUpdateComponent } from './components/vehicle-update/vehicle-update.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: ':id',
     component: VehicleItemComponent,
+    canActivate: [authenticatorGuard]
+  },
+  {
+    path: ':id/editar',
+    component: VehicleUpdateComponent,
     canActivate: [authenticatorGuard]
   },
 ];
